@@ -154,52 +154,114 @@
     class="bg-background text-on-background font-body-md overflow-x-hidden blueprint-bg"
   >
     <!-- TopNavBar -->
-    <header
-      class="bg-surface/95 docked full-width top-0 z-50 border-b border-outline-variant sticky backdrop-blur-sm"
+    <nav
+      class="fixed top-0 left-0 right-0 z-50 bg-surface/95 border-b border-outline-variant backdrop-blur-sm"
     >
       <div
         class="flex justify-between items-center w-full px-margin-page max-w-7xl mx-auto h-20"
       >
-        <div
+        <a
+          href="index.html"
           class="font-headline-sm text-headline-sm font-bold tracking-tighter text-primary"
+          >VANGUARD MECHATRONICS</a
         >
-          VANGUARD MECHATRONICS
-        </div>
-        <nav class="hidden md:flex items-center space-x-stack-lg h-full">
+        <div class="hidden md:flex gap-8 items-center">
           <a
-            class="text-secondary font-label-caps text-label-caps hover:text-primary transition-colors h-full flex items-center"
+            class="text-secondary font-label-caps text-label-caps hover:text-primary transition-colors"
             href="index.html"
             >Home</a
           >
           <a
-            class="text-secondary font-label-caps text-label-caps hover:text-primary transition-colors h-full flex items-center"
+            class="text-secondary font-label-caps text-label-caps hover:text-primary transition-colors"
             href="services.html"
             >Services</a
           >
           <a
-            class="text-primary border-b-2 border-primary pb-1 font-label-caps text-label-caps h-full flex items-center"
+            class="text-primary border-b-2 border-primary pb-1 font-label-caps text-label-caps"
             href="projects.html"
             >Projects</a
           >
           <a
-            class="text-secondary font-label-caps text-label-caps hover:text-primary transition-colors h-full flex items-center"
+            class="text-secondary font-label-caps text-label-caps hover:text-primary transition-colors"
             href="about.html"
             >About Us</a
           >
           <a
-            class="text-secondary font-label-caps text-label-caps hover:text-primary transition-colors h-full flex items-center"
+            class="text-secondary font-label-caps text-label-caps hover:text-primary transition-colors"
             href="contact.html"
             >Contact</a
           >
-        </nav>
-        <button
-          class="bg-primary text-on-primary px-stack-md py-stack-sm font-label-caps text-label-caps uppercase hover:bg-primary-container transition-all active:scale-95 duration-150 ease-in-out"
+        </div>
+        <a
+          href="contact.html"
+          class="hidden md:inline-flex items-center bg-primary text-on-primary px-stack-md py-stack-sm font-label-caps text-label-caps hover:bg-primary-container transition-all active:scale-95 duration-150 ease-in-out"
+          >Contact Us</a
         >
-          Request a Quote
+        <button
+          id="mobile-menu-toggle"
+          type="button"
+          class="md:hidden p-2 text-primary"
+          aria-label="Toggle navigation menu"
+          aria-expanded="false"
+          aria-controls="mobile-menu"
+        >
+          <span id="mobile-menu-icon" class="material-symbols-outlined text-3xl"
+            >menu</span
+          >
         </button>
       </div>
-    </header>
-    <main class="max-w-7xl mx-auto px-margin-page py-stack-lg">
+      <div
+        id="mobile-menu"
+        class="hidden md:hidden border-t border-outline-variant bg-surface"
+      >
+        <div class="flex flex-col px-margin-page py-stack-md gap-stack-sm">
+          <a
+            class="text-on-surface font-label-caps text-label-caps py-2 hover:text-primary transition-colors pl-3"
+            href="index.html"
+            >Home</a
+          >
+          <a
+            class="text-on-surface font-label-caps text-label-caps py-2 hover:text-primary transition-colors pl-3"
+            href="services.html"
+            >Services</a
+          >
+          <a
+            class="text-primary font-label-caps text-label-caps py-2 border-l-2 border-primary pl-3"
+            href="projects.html"
+            >Projects</a
+          >
+          <a
+            class="text-on-surface font-label-caps text-label-caps py-2 hover:text-primary transition-colors pl-3"
+            href="about.html"
+            >About Us</a
+          >
+          <a
+            class="text-on-surface font-label-caps text-label-caps py-2 hover:text-primary transition-colors pl-3"
+            href="contact.html"
+            >Contact</a
+          >
+          <a
+            href="contact.html"
+            class="bg-primary text-on-primary px-stack-md py-stack-sm font-label-caps text-label-caps text-center mt-stack-sm hover:bg-primary-container transition-all"
+            >Contact Us</a
+          >
+        </div>
+      </div>
+      <script>
+        (function () {
+          var btn = document.getElementById('mobile-menu-toggle');
+          var menu = document.getElementById('mobile-menu');
+          var icon = document.getElementById('mobile-menu-icon');
+          if (!btn || !menu) return;
+          btn.addEventListener('click', function () {
+            var isHidden = menu.classList.toggle('hidden');
+            btn.setAttribute('aria-expanded', isHidden ? 'false' : 'true');
+            if (icon) icon.textContent = isHidden ? 'menu' : 'close';
+          });
+        })();
+      </script>
+    </nav>
+    <main class="pt-20 max-w-7xl mx-auto px-margin-page py-stack-lg">
       <!-- Hero Section for Projects -->
       <section class="mb-16">
         <div
