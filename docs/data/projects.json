@@ -1,0 +1,20 @@
+[
+  {
+    "id": "VM-2024-X1",
+    "title": "Automated Multi-Axis Assembly Cell",
+    "description": "Implementation of a high-speed robotic assembly line utilizing 6-axis collaborative robots and integrated machine vision.",
+    "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuDuhVCnJSZ2pD0kjvWaFsNBGc_DL-9yiOhafB4eIxfHx-r-Mi7FgXPzIn7kJ7fJ7u0ja6Ye2z0N_uFMgagabG5TXAnsFNFb44VBTsRKkX2UiGHzQtVzOj59VDl_t-B9oN_3KWQbeAb9bnDckRFYcklIvwHzL7B-kcQF0IdOZeVkyA53zqpk_I9ERlyKEwYr52SPq9xA6EkEPnf4zjQyVuNQeuOMbvieZEBB7IWS8u-79jRkxfRUO8hMTRFILQWRhzHMgYsr1l1-biY",
+    "status": "IN PRODUCTION",
+    "tags": ["PLC CONTROL", "COMPUTER VISION", "KINEMATICS"],
+    "size": "large"
+  },
+  {
+    "id": "VM-2024-M2",
+    "title": "Micro-Transmission Unit",
+    "description": "Custom torque-dense gear systems designed for surgical robotic applications requiring zero-backlash performance.",
+    "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuDCIItWrMyVoQ9_9iqEPx7WOMNLQSWWTpbHyKDtssXWxy1TQcEmzF4qVBGpuQAyg5ausQoqSSec68d2ECMQo_rU2AEdv5O19DcAm9TxlP82rS3bQ6A7pdFl--22Bp4EdGEg8vBK8CA8QSDrOK-W-A1Y8XEl5YAHgJJCSJ8FTEBGOyhcm7La5fE1y6_geXgULY_Q5RtswKc-CFMurjyNyp3uIfZ8I31IOKNKlNq8pcaGhsbDYXwqnXFSACBxLIMA4HIuFMrjPmBZS1A",
+    "status": "COMPLETED",
+    "tags": ["MECHANICAL", "SURGICAL"],
+    "size": "small"
+  }
+]
