@@ -1,0 +1,602 @@
+<!doctype html>
+
+<html class="light" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&amp;family=Space+Grotesk:wght@600;700&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+      rel="stylesheet"
+    />
+    <script id="tailwind-config">
+      tailwind.config = {
+        darkMode: 'class',
+        theme: {
+          extend: {
+            colors: {
+              'on-secondary-fixed': '#0b1c30',
+              'surface-container-high': '#e2e7ff',
+              'tertiary-fixed-dim': '#b9c8de',
+              'on-tertiary-fixed-variant': '#39485a',
+              tertiary: '#1d2c3d',
+              outline: '#737781',
+              secondary: '#505f76',
+              primary: '#002a58',
+              'on-primary-fixed': '#001b3d',
+              'secondary-fixed': '#d3e4fe',
+              'surface-container-lowest': '#ffffff',
+              'on-tertiary': '#ffffff',
+              'on-tertiary-fixed': '#0d1c2d',
+              'inverse-on-surface': '#eef0ff',
+              'secondary-container': '#d0e1fb',
+              'on-error-container': '#93000a',
+              'on-surface-variant': '#424750',
+              'on-secondary-fixed-variant': '#38485d',
+              'surface-container': '#eaedff',
+              'surface-container-low': '#f2f3ff',
+              'surface-dim': '#d2d9f4',
+              'on-surface': '#131b2e',
+              error: '#ba1a1a',
+              'on-secondary-container': '#54647a',
+              'primary-fixed': '#d6e3ff',
+              'surface-variant': '#dae2fd',
+              'surface-bright': '#faf8ff',
+              'inverse-surface': '#283044',
+              'secondary-fixed-dim': '#b7c8e1',
+              'on-background': '#131b2e',
+              'on-primary-container': '#83aef5',
+              'on-tertiary-container': '#9faec3',
+              'on-secondary': '#ffffff',
+              'error-container': '#ffdad6',
+              'on-primary': '#ffffff',
+              'surface-container-highest': '#dae2fd',
+              'tertiary-container': '#334254',
+              'on-error': '#ffffff',
+              'tertiary-fixed': '#d4e4fa',
+              'surface-tint': '#305ea0',
+              'primary-container': '#004080',
+              'inverse-primary': '#a9c7ff',
+              'outline-variant': '#c3c6d2',
+              surface: '#faf8ff',
+              'on-primary-fixed-variant': '#0e4686',
+              'primary-fixed-dim': '#a9c7ff',
+              background: '#faf8ff',
+            },
+            borderRadius: {
+              DEFAULT: '0.125rem',
+              lg: '0.25rem',
+              xl: '0.5rem',
+              full: '0.75rem',
+            },
+            spacing: {
+              gutter: '24px',
+              unit: '4px',
+              'stack-lg': '32px',
+              'stack-md': '16px',
+              'stack-sm': '8px',
+              'margin-page': '64px',
+            },
+            fontFamily: {
+              'body-lg': ['Inter'],
+              'headline-lg': ['Space Grotesk'],
+              'label-caps': ['Inter'],
+              'headline-sm': ['Space Grotesk'],
+              'headline-md': ['Space Grotesk'],
+              'body-md': ['Inter'],
+            },
+            fontSize: {
+              'body-lg': ['18px', { lineHeight: '1.6', fontWeight: '400' }],
+              'headline-lg': [
+                '48px',
+                {
+                  lineHeight: '1.1',
+                  letterSpacing: '-0.02em',
+                  fontWeight: '700',
+                },
+              ],
+              'label-caps': [
+                '12px',
+                {
+                  lineHeight: '1.0',
+                  letterSpacing: '0.08em',
+                  fontWeight: '700',
+                },
+              ],
+              'headline-sm': ['24px', { lineHeight: '1.3', fontWeight: '600' }],
+              'headline-md': [
+                '32px',
+                {
+                  lineHeight: '1.2',
+                  letterSpacing: '-0.01em',
+                  fontWeight: '600',
+                },
+              ],
+              'body-md': ['16px', { lineHeight: '1.5', fontWeight: '400' }],
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      .material-symbols-outlined {
+        font-variation-settings:
+          'FILL' 0,
+          'wght' 400,
+          'GRAD' 0,
+          'opsz' 24;
+      }
+      .blueprint-bg {
+        background-image:
+          linear-gradient(
+            to right,
+            rgba(115, 119, 129, 0.05) 1px,
+            transparent 1px
+          ),
+          linear-gradient(
+            to bottom,
+            rgba(115, 119, 129, 0.05) 1px,
+            transparent 1px
+          );
+        background-size: 40px 40px;
+      }
+    </style>
+  </head>
+  <body
+    class="bg-background text-on-background font-body-md overflow-x-hidden blueprint-bg"
+  >
+    <!-- TopNavBar -->
+    <header
+      class="bg-surface/95 docked full-width top-0 z-50 border-b border-outline-variant sticky backdrop-blur-sm"
+    >
+      <div
+        class="flex justify-between items-center w-full px-margin-page max-w-7xl mx-auto h-20"
+      >
+        <div
+          class="font-headline-sm text-headline-sm font-bold tracking-tighter text-primary"
+        >
+          VANGUARD MECHATRONICS
+        </div>
+        <nav class="hidden md:flex items-center space-x-stack-lg h-full">
+          <a
+            class="text-secondary font-label-caps text-label-caps hover:text-primary transition-colors h-full flex items-center"
+            href="index.html"
+            >Home</a
+          >
+          <a
+            class="text-secondary font-label-caps text-label-caps hover:text-primary transition-colors h-full flex items-center"
+            href="services.html"
+            >Services</a
+          >
+          <a
+            class="text-primary border-b-2 border-primary pb-1 font-label-caps text-label-caps h-full flex items-center"
+            href="projects.html"
+            >Projects</a
+          >
+          <a
+            class="text-secondary font-label-caps text-label-caps hover:text-primary transition-colors h-full flex items-center"
+            href="about.html"
+            >About Us</a
+          >
+          <a
+            class="text-secondary font-label-caps text-label-caps hover:text-primary transition-colors h-full flex items-center"
+            href="contact.html"
+            >Contact</a
+          >
+        </nav>
+        <button
+          class="bg-primary text-on-primary px-stack-md py-stack-sm font-label-caps text-label-caps uppercase hover:bg-primary-container transition-all active:scale-95 duration-150 ease-in-out"
+        >
+          Request a Quote
+        </button>
+      </div>
+    </header>
+    <main class="max-w-7xl mx-auto px-margin-page py-stack-lg">
+      <!-- Hero Section for Projects -->
+      <section class="mb-16">
+        <div
+          class="flex flex-col md:flex-row md:items-end justify-between gap-stack-md border-l-4 border-primary pl-stack-md"
+        >
+          <div class="max-w-2xl">
+            <span
+              class="font-label-caps text-label-caps text-secondary uppercase tracking-widest block mb-stack-sm"
+              >Engineering Portfolio</span
+            >
+            <h1
+              class="font-headline-lg text-headline-lg text-primary uppercase"
+            >
+              Precision Projects
+            </h1>
+            <p
+              class="font-body-lg text-body-lg text-on-surface-variant mt-stack-md"
+            >
+              A curated showcase of our mechatronics engineering solutions,
+              where mechanical precision meets intelligent control systems.
+            </p>
+          </div>
+          <div class="flex gap-stack-sm">
+            <span
+              class="material-symbols-outlined text-primary-container"
+              style="font-size: 48px"
+              >settings_input_component</span
+            >
+            <span
+              class="material-symbols-outlined text-outline-variant"
+              style="font-size: 48px"
+              >precision_manufacturing</span
+            >
+          </div>
+        </div>
+      </section>
+      <!-- Projects Bento Grid -->
+      <section class="grid grid-cols-1 md:grid-cols-12 gap-gutter">
+        <!-- Project 1: Featured Large -->
+        <div
+          class="md:col-span-8 bg-surface border border-outline-variant group overflow-hidden relative"
+        >
+          <div
+            class="aspect-[16/9] w-full overflow-hidden bg-surface-container"
+          >
+            <img
+              alt="Robotic Integration"
+              class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+              data-alt="A high-fidelity technical photograph of a collaborative robotic arm operating in a clean, industrial mechatronics laboratory. The lighting is crisp and cool-toned, emphasizing the metallic textures of the machinery against a light gray grid-patterned background. The scene conveys technological precision and advanced industrial engineering in a modern light-mode aesthetic."
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuDuhVCnJSZ2pD0kjvWaFsNBGc_DL-9yiOhafB4eIxfHx-r-Mi7FgXPzIn7kJ7fJ7u0ja6Ye2z0N_uFMgagabG5TXAnsFNFb44VBTsRKkX2UiGHzQtVzOj59VDl_t-B9oN_3KWQbeAb9bnDckRFYcklIvwHzL7B-kcQF0IdOZeVkyA53zqpk_I9ERlyKEwYr52SPq9xA6EkEPnf4zjQyVuNQeuOMbvieZEBB7IWS8u-79jRkxfRUO8hMTRFILQWRhzHMgYsr1l1-biY"
+            />
+          </div>
+          <div class="p-stack-lg">
+            <div class="flex items-center gap-stack-sm mb-stack-sm">
+              <span
+                class="flex items-center gap-1 font-label-caps text-[10px] text-primary bg-primary-fixed px-2 py-1 rounded-full"
+              >
+                <span
+                  class="w-2 h-2 rounded-full bg-primary animate-pulse"
+                ></span>
+                IN PRODUCTION
+              </span>
+              <span class="font-label-caps text-label-caps text-outline"
+                >REF: VM-2024-X1</span
+              >
+            </div>
+            <h3
+              class="font-headline-md text-headline-md text-primary mb-stack-md"
+            >
+              Automated Multi-Axis Assembly Cell
+            </h3>
+            <p
+              class="font-body-md text-body-md text-on-surface-variant mb-stack-md"
+            >
+              Implementation of a high-speed robotic assembly line utilizing
+              6-axis collaborative robots and integrated machine vision for
+              sub-millimeter precision in electronic component placement.
+            </p>
+            <div class="flex flex-wrap gap-2">
+              <span
+                class="border border-outline-variant px-3 py-1 font-label-caps text-[10px] text-secondary"
+                >PLC CONTROL</span
+              >
+              <span
+                class="border border-outline-variant px-3 py-1 font-label-caps text-[10px] text-secondary"
+                >COMPUTER VISION</span
+              >
+              <span
+                class="border border-outline-variant px-3 py-1 font-label-caps text-[10px] text-secondary"
+                >KINEMATICS</span
+              >
+            </div>
+          </div>
+        </div>
+        <!-- Project 2: Side Item -->
+        <div
+          class="md:col-span-4 bg-surface border border-outline-variant group overflow-hidden"
+        >
+          <div
+            class="aspect-square w-full overflow-hidden bg-surface-container"
+          >
+            <img
+              alt="Precision Gears"
+              class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+              data-alt="Macro view of a complex mechanical gear system with precision-engineered steel components and circuit traces visible in the background. The color palette is composed of metallic silvers, slate grays, and deep navy blues. The lighting is sharp, creating a sense of industrial durability and high-tech mechanical expertise."
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuDCIItWrMyVoQ9_9iqEPx7WOMNLQSWWTpbHyKDtssXWxy1TQcEmzF4qVBGpuQAyg5ausQoqSSec68d2ECMQo_rU2AEdv5O19DcAm9TxlP82rS3bQ6A7pdFl--22Bp4EdGEg8vBK8CA8QSDrOK-W-A1Y8XEl5YAHgJJCSJ8FTEBGOyhcm7La5fE1y6_geXgULY_Q5RtswKc-CFMurjyNyp3uIfZ8I31IOKNKlNq8pcaGhsbDYXwqnXFSACBxLIMA4HIuFMrjPmBZS1A"
+            />
+          </div>
+          <div class="p-stack-md">
+            <h3
+              class="font-headline-sm text-headline-sm text-primary mb-stack-sm"
+            >
+              Micro-Transmission Unit
+            </h3>
+            <p
+              class="font-body-md text-body-md text-on-surface-variant mb-stack-md"
+            >
+              Custom torque-dense gear systems designed for surgical robotic
+              applications requiring zero-backlash performance.
+            </p>
+            <button
+              class="flex items-center gap-1 font-label-caps text-label-caps text-primary hover:translate-x-1 transition-transform"
+            >
+              TECHNICAL SPECS
+              <span class="material-symbols-outlined text-[16px]"
+                >arrow_forward</span
+              >
+            </button>
+          </div>
+        </div>
+        <!-- Project 3: Medium Item -->
+        <div
+          class="md:col-span-4 bg-surface border border-outline-variant group overflow-hidden"
+        >
+          <div class="aspect-[4/3] w-full overflow-hidden bg-surface-container">
+            <img
+              alt="CAD Design"
+              class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+              data-alt="A detailed engineering CAD schematic displayed on a high-resolution monitor in a professional workspace. The digital blueprint shows intricate 3D models of robotic joints and circuit layouts. The atmosphere is professional and focused, reflecting a B2B engineering environment with clean lighting and organized technological tools."
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuCNi8sdZUvmVmj3pUyEkR03K9oxqSJJ2x2KPa0okMFgrCTKOezVOUjiCyx7FRUITGUmHZ6K2WR83tOv_8ypRZXEtG1zlMn1iu0resjV6xN5zM-q7RFZCTrq4EO0LbAV-rlei6ijMedTPnIe2Xget0vTMM6SA2-eIMFtOmZOTH9pX0woRk3MqQeEBitTV2xsifJl8Pa68RHvsKbNv7nbnFs8WChQjyE50r4CEsM85jvD4Y4OeyypK1C1MncxcB8BYygpJv3yXTGwCLo"
+            />
+          </div>
+          <div class="p-stack-md">
+            <h3
+              class="font-headline-sm text-headline-sm text-primary mb-stack-sm"
+            >
+              CAD/CAM Optimization
+            </h3>
+            <p class="font-body-md text-body-md text-on-surface-variant">
+              Reducing production lead times by 30% through advanced digital
+              twin simulation and toolpath optimization.
+            </p>
+          </div>
+        </div>
+        <!-- Project 4: Wide Item -->
+        <div
+          class="md:col-span-8 bg-surface-container-low border border-outline-variant flex flex-col md:flex-row group overflow-hidden"
+        >
+          <div class="md:w-1/2 aspect-video md:aspect-auto overflow-hidden">
+            <img
+              alt="Control Systems"
+              class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+              data-alt="A sophisticated electronic control panel with neatly arranged wires, PLCs, and illuminated status indicators. The aesthetic is industrial and orderly, highlighting the precision of electrical engineering. The lighting is neutral and clear, showcasing the complexity of mechatronic control systems in a professional light-mode setting."
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuASLvP8aVgeooCd79e9eO5w49-cWEmXu2v4fgyH7JaVio0QtkhPxLNJFTjJ5L_m4KFabqb4Zr9LhaImR0C-ZgIMBcBMMtht8jeKibZcjvmQZcip57XsRTcYCgTQKNoEP3OVXG6pOrt08Ngez6g9pu8Bqg5_boByTvhyrFpBRk0EKeU3YJW9vCrl0343knWDNR3ZPiK91sVdpvbFc3ICqRWmH0UroTii5nTbbLTbA_FYxtVwt9Hn5wdsk3EQEpIfMlLdFdDcBjae5lE"
+            />
+          </div>
+          <div class="md:w-1/2 p-stack-lg flex flex-col justify-center">
+            <div class="mb-stack-sm">
+              <span
+                class="material-symbols-outlined text-primary"
+                style="font-variation-settings: 'FILL' 1"
+                >developer_board</span
+              >
+            </div>
+            <h3
+              class="font-headline-md text-headline-md text-primary mb-stack-sm"
+            >
+              Integrated Control Cabinets
+            </h3>
+            <p
+              class="font-body-md text-body-md text-on-surface-variant mb-stack-md"
+            >
+              Designing and manufacturing custom PLC control enclosures for
+              harsh industrial environments, ensuring IP67 compliance.
+            </p>
+            <div class="flex items-center gap-4">
+              <div class="text-center">
+                <div class="font-headline-sm text-primary">99.9%</div>
+                <div class="font-label-caps text-[10px] text-outline">
+                  UPTIME
+                </div>
+              </div>
+              <div class="w-px h-8 bg-outline-variant"></div>
+              <div class="text-center">
+                <div class="font-headline-sm text-primary">IP67</div>
+                <div class="font-label-caps text-[10px] text-outline">
+                  RATING
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Project 5: Standard Item -->
+        <div
+          class="md:col-span-4 bg-surface border border-outline-variant group overflow-hidden"
+        >
+          <div class="aspect-video w-full overflow-hidden bg-surface-container">
+            <img
+              alt="Sensors"
+              class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+              data-alt="An abstract, high-tech representation of robotic sensors and light-based data transmission. Bright blue light beams intersect in a dark but clean space, suggesting speed and high-fidelity signal processing. The visual style is modern, technical, and high-contrast, fitting a premium engineering brand."
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuBmG5KLz_zWorsuVI7rvNhanv7sIxBOW20oDIjscHYpAutqter4sHdqG61FSeKMfNi7gnNM-ad98DxANzhZr6LdH-eilTXw33ajfG_otj5AvxqCe1_VFI7N1xtGB1o8Oft2GQT1Ie0wsr-KGHdIPvzKWFRvyHXslAUXEBOXKVKRBsemMKh5mrRzFiXlT1kAVGc_PMU-WySeoKv_3sUkJ3Selqueqb4MrcFSwGGWqrmWu6-qpl819d7wb2myuFHhMgMyhImmaztgN1c"
+            />
+          </div>
+          <div class="p-stack-md">
+            <h3
+              class="font-headline-sm text-headline-sm text-primary mb-stack-sm"
+            >
+              IoT Sensor Deployment
+            </h3>
+            <p class="font-body-md text-body-md text-on-surface-variant">
+              Distributed sensor networks for predictive maintenance in heavy
+              hydraulic systems.
+            </p>
+          </div>
+        </div>
+        <!-- Project 6: Standard Item -->
+        <div
+          class="md:col-span-4 bg-surface border border-outline-variant group overflow-hidden"
+        >
+          <div class="aspect-video w-full overflow-hidden bg-surface-container">
+            <img
+              alt="Pneumatics"
+              class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+              data-alt="An industrial technician working on a complex piece of pneumatic machinery, with focus on the metallic cylinders and hoses. The setting is a clean, modern factory floor. The lighting is professional, highlighting the silver and blue accents of the equipment and the meticulous nature of mechatronic maintenance."
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuBp94FqToiGRaiExYW4MJ0AsX9iLDfoG7TsTd_JzJpXrTC2tZYDFXX19QXbEjrSKEMFDewZvxSGcx8mYqrOSWCv5aq0bhOq9q3cNKE9QHf9DUPwRzkBCCEGguUSFo8cSOuoENfR0R4UIe96_A36jwhxVGFmVhthFCjcEqNs0rbzuU39bbDsoERlm4c8p5BDuJzAJBRSvPfETRqBqgjYvSq_zBA8RwQnnDbvGwFw_u4Ndw67OHFGgvD3XSjBzLEuMgxlPMcmmuHJ-WE"
+            />
+          </div>
+          <div class="p-stack-md">
+            <h3
+              class="font-headline-sm text-headline-sm text-primary mb-stack-sm"
+            >
+              Pneumatic Logic Arrays
+            </h3>
+            <p class="font-body-md text-body-md text-on-surface-variant">
+              Refining energy consumption through optimized pneumatic circuit
+              design and valve timing.
+            </p>
+          </div>
+        </div>
+        <!-- Project 7: Standard Item -->
+        <div
+          class="md:col-span-4 bg-surface border border-outline-variant group overflow-hidden"
+        >
+          <div class="aspect-video w-full overflow-hidden bg-surface-container">
+            <img
+              alt="Machining"
+              class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+              data-alt="A high-contrast photo of a precision-machined aluminum block with intricate internal channels for cooling or fluid flow. The surface finish is brushed and metallic, reflecting soft studio lights. The image conveys high-end manufacturing capability and structural integrity in engineering."
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuD9d5bJHnhbFwTPqLVoQRLNNUL_cZ0_pSfXzVFdF-QW6WheH7VoGeax0hPp7L4oeirS9fNd2zrsgf1CoS6dSzH12as8Fnm4a0asSJd9wk27-wzCi1UWgzpHBgzG8JI5y-D7uuQMDJwK7Bwj1zw0Uf73nlEYNcQ2WQ8ZkE_HhhrsXgsdg3yjMLgm7HuPnDa6IWmj3pI1e8HgUv32i7w1vo2fLD0SY2FRuOQskhT_Yv2cXqVg-H9-9JOFhhWdAkMw1vi4p2PHZMCfZyg"
+            />
+          </div>
+          <div class="p-stack-md">
+            <h3
+              class="font-headline-sm text-headline-sm text-primary mb-stack-sm"
+            >
+              CNC Precision Milling
+            </h3>
+            <p class="font-body-md text-body-md text-on-surface-variant">
+              5-axis machining of aerospace-grade aluminum housings for orbital
+              satellite modules.
+            </p>
+          </div>
+        </div>
+      </section>
+      <!-- CTA Section -->
+      <section
+        class="mt-24 mb-16 p-stack-lg bg-primary text-on-primary flex flex-col items-center text-center relative overflow-hidden"
+      >
+        <div
+          class="absolute inset-0 opacity-10 pointer-events-none blueprint-bg invert"
+        ></div>
+        <h2 class="font-headline-md text-headline-md mb-stack-md relative z-10">
+          Have a Complex Engineering Challenge?
+        </h2>
+        <p
+          class="font-body-lg text-body-lg max-w-2xl mb-stack-lg opacity-90 relative z-10"
+        >
+          Our team of mechatronics experts is ready to help you engineer the
+          future. From conceptual design to full-scale production.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-stack-md relative z-10">
+          <button
+            class="bg-on-primary text-primary px-8 py-3 font-label-caps text-label-caps hover:bg-primary-fixed transition-all"
+          >
+            START A PROJECT
+          </button>
+          <button
+            class="border border-on-primary text-on-primary px-8 py-3 font-label-caps text-label-caps hover:bg-white/10 transition-all"
+          >
+            DOWNLOAD BROCHURE
+          </button>
+        </div>
+      </section>
+    </main>
+    <!-- Footer -->
+    <footer
+      class="bg-surface-container-highest border-t border-outline-variant"
+    >
+      <div
+        class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-gutter px-margin-page py-stack-lg max-w-7xl mx-auto"
+      >
+        <div class="flex flex-col gap-stack-md">
+          <div
+            class="font-headline-sm text-headline-sm font-bold text-on-surface"
+          >
+            VANGUARD
+          </div>
+          <p class="font-body-md text-body-md text-on-surface-variant">
+            Advancing the frontiers of mechatronics through rigorous engineering
+            and industrial innovation.
+          </p>
+        </div>
+        <div class="flex flex-col gap-stack-sm">
+          <h4 class="font-label-caps text-label-caps text-primary mb-2">
+            QUICK LINKS
+          </h4>
+          <a
+            class="text-on-surface-variant font-body-md text-body-md hover:text-primary transition-colors hover:translate-x-1 duration-200"
+            href="services.html"
+            >Services</a
+          >
+          <a
+            class="text-on-surface-variant font-body-md text-body-md hover:text-primary transition-colors hover:translate-x-1 duration-200"
+            href="projects.html"
+            >Portfolio</a
+          >
+          <a
+            class="text-on-surface-variant font-body-md text-body-md hover:text-primary transition-colors hover:translate-x-1 duration-200"
+            href="#"
+            >Technical Docs</a
+          >
+          <a
+            class="text-on-surface-variant font-body-md text-body-md hover:text-primary transition-colors hover:translate-x-1 duration-200"
+            href="#"
+            >Careers</a
+          >
+        </div>
+        <div class="flex flex-col gap-stack-sm">
+          <h4 class="font-label-caps text-label-caps text-primary mb-2">
+            LEGAL
+          </h4>
+          <a
+            class="text-on-surface-variant font-body-md text-body-md hover:text-primary transition-colors hover:translate-x-1 duration-200"
+            href="#"
+            >Privacy Policy</a
+          >
+          <a
+            class="text-on-surface-variant font-body-md text-body-md hover:text-primary transition-colors hover:translate-x-1 duration-200"
+            href="#"
+            >Terms of Service</a
+          >
+        </div>
+        <div class="flex flex-col gap-stack-sm">
+          <h4 class="font-label-caps text-label-caps text-primary mb-2">
+            HEADQUARTERS
+          </h4>
+          <p class="text-on-surface-variant font-body-md text-body-md">
+            Precision Plaza, Ind. Zone A<br />Metropolis Engineering Hub<br />United
+            Kingdom
+          </p>
+          <div class="flex gap-4 mt-4">
+            <span
+              class="material-symbols-outlined text-on-surface-variant hover:text-primary cursor-pointer"
+              data-icon="language"
+              >language</span
+            >
+            <span
+              class="material-symbols-outlined text-on-surface-variant hover:text-primary cursor-pointer"
+              data-icon="mail"
+              >mail</span
+            >
+          </div>
+        </div>
+      </div>
+      <div
+        class="px-margin-page py-stack-md max-w-7xl mx-auto border-t border-outline-variant flex flex-col md:flex-row justify-between items-center text-on-surface-variant font-body-md text-body-md opacity-60"
+      >
+        <span
+          >© 2024 Vanguard Mechatronics Engineering P.L.C. Precision Engineered
+          Solutions.</span
+        >
+        <div class="flex gap-stack-md mt-4 md:mt-0">
+          <span>ISO 9001:2015 CERTIFIED</span>
+          <span>AS9100D COMPLIANT</span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

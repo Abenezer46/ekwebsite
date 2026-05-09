@@ -1,0 +1,20 @@
+# Original Stitch source folders (mockups + screenshots, not part of the live site)
+/about_us_updated_footer/
+/contact_us_updated_footer/
+/homepage/
+/our_services_updated_footer/
+/project_gallery_updated_footer/
+/photo_2026_05_07_10_37_36.jpg/
+/vanguard_industrial_system/
+
+# Loose root-level design assets / docs (not served by the site)
+/DESIGN.md
+/screen.png
+
+# OS / editor artifacts
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*.swp
+*.swo
