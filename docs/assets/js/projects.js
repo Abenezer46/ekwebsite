@@ -1,45 +1,30 @@
-// assets/js/projects.js
-async function renderProjects() {
-  const container = document.getElementById('projects-grid');
+(async () => {
+  const container = document.getElementById('projects-list');
   if (!container) return;
 
   try {
-    const response = await fetch('./data/projects.json');
-    const projects = await response.json();
+    const resp = await fetch('data/projects.json');
+    if (!resp.ok) throw new Error('fetch failed');
+    const projects = await resp.json();
 
-    container.innerHTML = projects
-      .map((project) => {
-        // Check if it's a large or small card based on our JSON 'size'
-        const isLarge = project.size === 'large';
-        const colSpan = isLarge ? 'md:col-span-8' : 'md:col-span-4';
-
-        return `
-                <div class="${colSpan} bg-surface border border-outline-variant group overflow-hidden relative">
-                    <div class="aspect-video w-full overflow-hidden bg-surface-container">
-                        <img src="${project.image}" alt="${project.title}" 
-                             class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
-                    </div>
-                    <div class="p-stack-lg">
-                        <div class="flex items-center gap-stack-sm mb-stack-sm">
-                            <span class="font-label-caps text-[10px] text-primary bg-primary-fixed px-2 py-1 rounded-full">
-                                ${project.status}
-                            </span>
-                            <span class="font-label-caps text-label-caps text-outline">REF: ${project.id}</span>
-                        </div>
-                        <h3 class="font-headline-md text-headline-md text-primary mb-stack-md">${project.title}</h3>
-                        <p class="font-body-md text-body-md text-on-surface-variant mb-stack-md">${project.description}</p>
-                        <div class="flex flex-wrap gap-2">
-                            ${project.tags.map((tag) => `<span class="border border-outline-variant px-3 py-1 font-label-caps text-[10px] text-secondary">${tag}</span>`).join('')}
-                        </div>
-                    </div>
-                </div>
-            `;
-      })
-      .join('');
-  } catch (error) {
-    console.error('Error loading projects:', error);
-    container.innerHTML = `<p class="col-span-12 text-center py-20 text-error">Failed to load engineering portfolio. Please refresh.</p>`;
+    container.innerHTML = projects.map((p, i) => `
+      <div class="bg-paper-high border border-rule flex flex-col card-hover" style="animation: fade-up 0.5s cubic-bezier(0.16,1,0.3,1) ${i * 0.1}s both;">
+        ${p.image ? `<img src="${p.image}" alt="${p.title}" class="project-card-img" loading="lazy" />` : ''}
+        <div class="p-6 flex flex-col flex-grow">
+          <span class="font-outlier text-xs text-accent tracking-widest block mb-stack-sm">${p.id}</span>
+          <div class="flex flex-wrap gap-2 mb-stack-md">
+            ${p.tags.map(t => `<span class="project-tag">${t}</span>`).join('')}
+          </div>
+          <h3 class="font-display text-heading-sm font-bold text-ink mb-stack-sm">${p.title}</h3>
+          <p class="font-body text-sm text-ink-dim mb-stack-lg flex-grow">${p.description}</p>
+          <div class="pt-stack-md border-t border-rule">
+            <span class="font-label-caps text-label-caps text-ink-dim tracking-widest">STATUS</span>
+            <span class="block font-body text-sm text-ink font-bold mt-1">${p.status}</span>
+          </div>
+        </div>
+      </div>
+    `).join('');
+  } catch {
+    container.innerHTML = '<p class="font-body text-ink-dim col-span-full text-center">Could not load projects.</p>';
   }
-}
-
-document.addEventListener('DOMContentLoaded', renderProjects);
+})();

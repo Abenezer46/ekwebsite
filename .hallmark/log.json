@@ -1,0 +1,34 @@
+[
+  {
+    "date": "2026-07-29",
+    "scope": "app",
+    "design-system": "DESIGN.md",
+    "macrostructure": {
+      "home": "Marquee Hero",
+      "services": "Bento Grid",
+      "projects": "Letter",
+      "about": "Workbench",
+      "contact": "Form-Led"
+    },
+    "theme": "custom (Cobalt · monochrome blue)",
+    "genre": "modern-minimal",
+    "enrichment": "none (typography only)",
+    "brief": "Vanguard Mechatronics — B2B engineering site (original)"
+  },
+  {
+    "date": "2026-07-29",
+    "scope": "app",
+    "design-system": "DESIGN.md",
+    "macrostructure": {
+      "home": "Marquee Hero",
+      "services": "Bento Grid",
+      "projects": "Catalogue",
+      "about": "Long Document",
+      "contact": "Form-led"
+    },
+    "theme": "custom (Forge · warm industrial · terracotta accent)",
+    "genre": "modern-minimal",
+    "enrichment": "home: Tier-C hero still + Tier-A radial bloom; projects: card images",
+    "brief": "Vanguard Mechatronics — full redesign: Forge theme, images, microinteractions"
+  }
+]

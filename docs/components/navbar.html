@@ -1,82 +1,24 @@
-<nav
-  class="fixed top-0 left-0 right-0 z-50 bg-surface/95 border-b border-outline-variant backdrop-blur-sm"
->
-  <div
-    class="flex justify-between items-center w-full px-margin-page max-w-7xl mx-auto h-20"
-  >
-    <a
-      href="index.html"
-      class="font-headline-sm text-headline-sm font-bold tracking-tighter text-primary"
-      >VANGUARD MECHATRONICS</a
-    >
-    <div class="hidden md:flex gap-8 items-center" id="nav-links">
-      <a
-        class="nav-link text-secondary font-label-caps text-label-caps hover:text-primary transition-colors"
-        href="index.html"
-        >Home</a
-      >
-      <a
-        class="nav-link text-secondary font-label-caps text-label-caps hover:text-primary transition-colors"
-        href="services.html"
-        >Services</a
-      >
-      <a
-        class="nav-link text-secondary font-label-caps text-label-caps hover:text-primary transition-colors"
-        href="projects.html"
-        >Projects</a
-      >
-      <a
-        class="nav-link text-secondary font-label-caps text-label-caps hover:text-primary transition-colors"
-        href="about.html"
-        >About Us</a
-      >
+<nav class="fixed top-4 left-1/2 -translate-x-1/2 z-50 w-[calc(100%-32px)] max-w-4xl bg-ink/85 backdrop-blur-md border border-rule/20 shadow-lg">
+  <div class="flex items-center justify-between px-5 h-14">
+    <a href="index.html" class="font-display text-body-md font-bold tracking-tight text-accent-ink no-underline uppercase">VANGUARD</a>
+    <div class="hidden md:flex items-center gap-6">
+      <a href="index.html" class="nav-link font-body text-sm text-accent-ink/70 hover:text-accent-ink transition-colors no-underline">Home</a>
+      <a href="services.html" class="nav-link font-body text-sm text-accent-ink/70 hover:text-accent-ink transition-colors no-underline">Services</a>
+      <a href="projects.html" class="nav-link font-body text-sm text-accent-ink/70 hover:text-accent-ink transition-colors no-underline">Projects</a>
+      <a href="about.html" class="nav-link font-body text-sm text-accent-ink/70 hover:text-accent-ink transition-colors no-underline">About</a>
+      <a href="contact.html" class="inline-block bg-accent text-accent-ink px-4 py-2 font-label-caps text-label-caps no-underline hover:opacity-85 transition-opacity">CONTACT US</a>
     </div>
-    <a
-      href="contact.html"
-      class="hidden md:inline-flex items-center bg-primary text-on-primary px-stack-md py-stack-sm font-label-caps text-label-caps hover:bg-primary-container transition-all active:scale-95 duration-150 ease-in-out"
-      >Contact Us</a
-    >
-    <button
-      id="mobile-menu-toggle"
-      type="button"
-      class="md:hidden p-2 text-primary"
-      aria-label="Toggle navigation menu"
-    >
-      <span id="mobile-menu-icon" class="material-symbols-outlined text-3xl"
-        >menu</span
-      >
+    <button id="nav-toggle" class="md:hidden flex flex-col gap-1.5 p-2 bg-transparent border-none cursor-pointer" aria-label="Toggle menu">
+      <span class="block w-5 h-[2px] bg-accent-ink transition-transform"></span>
+      <span class="block w-5 h-[2px] bg-accent-ink transition-opacity"></span>
+      <span class="block w-5 h-[2px] bg-accent-ink transition-transform"></span>
     </button>
   </div>
-  <div
-    id="mobile-menu"
-    class="hidden md:hidden border-t border-outline-variant bg-surface"
-  >
-    <div class="flex flex-col px-margin-page py-stack-md gap-stack-sm">
-      <a
-        class="nav-link text-on-surface font-label-caps text-label-caps py-2 pl-3"
-        href="index.html"
-        >Home</a
-      >
-      <a
-        class="nav-link text-on-surface font-label-caps text-label-caps py-2 pl-3"
-        href="services.html"
-        >Services</a
-      >
-      <a
-        class="nav-link text-on-surface font-label-caps text-label-caps py-2 pl-3"
-        href="projects.html"
-        >Projects</a
-      >
-      <a
-        class="nav-link text-on-surface font-label-caps text-label-caps py-2 pl-3"
-        href="about.html"
-        >About Us</a
-      >
-      <a
-        class="nav-link text-on-surface font-label-caps text-label-caps py-2 pl-3"
-        href="contact.html"
-        >Contact</a
-      >
-    </div>
+  <div id="mobile-menu" class="md:hidden hidden flex-col px-5 pb-5 gap-3">
+    <a href="index.html" class="nav-link font-body text-sm text-accent-ink/70 hover:text-accent-ink transition-colors no-underline">Home</a>
+    <a href="services.html" class="nav-link font-body text-sm text-accent-ink/70 hover:text-accent-ink transition-colors no-underline">Services</a>
+    <a href="projects.html" class="nav-link font-body text-sm text-accent-ink/70 hover:text-accent-ink transition-colors no-underline">Projects</a>
+    <a href="about.html" class="nav-link font-body text-sm text-accent-ink/70 hover:text-accent-ink transition-colors no-underline">About</a>
+    <a href="contact.html" class="inline-block bg-accent text-accent-ink px-4 py-2 font-label-caps text-label-caps no-underline text-center hover:opacity-85 transition-opacity">CONTACT US</a>
   </div>
 </nav>

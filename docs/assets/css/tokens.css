@@ -1,0 +1,27 @@
+:root {
+  --color-paper:        oklch(96%  0.015 75);
+  --color-paper-high:   oklch(93%  0.018 75);
+  --color-ink:          oklch(14%  0.012 60);
+  --color-ink-dim:      oklch(38%  0.01  70);
+  --color-surface:      oklch(93%  0.018 75);
+  --color-surface-high: oklch(88%  0.02  75);
+  --color-rule:         oklch(80%  0.012 75);
+  --color-accent:       oklch(50%  0.18  40);
+  --color-accent-ink:   oklch(96%  0.01  75);
+  --color-focus:        oklch(65%  0.15  60);
+  --color-error:        oklch(55%  0.15  30);
+  --font-display: 'Bricolage Grotesque', sans-serif;
+  --font-body: 'Geist', sans-serif;
+  --font-outlier: 'Space Mono', monospace;
+  --space-unit: 4px;
+  --space-sm: 8px;
+  --space-md: 16px;
+  --space-lg: 32px;
+  --space-xl: 64px;
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in: cubic-bezier(0.4, 0, 1, 1);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --dur-fast: 150ms;
+  --dur-norm: 250ms;
+  --dur-slow: 400ms;
+}

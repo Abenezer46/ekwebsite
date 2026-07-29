@@ -1,54 +1,41 @@
-async function loadComponent(elementId, filePath) {
-  try {
-    const url = new URL(filePath, window.location.href).href;
-    const response = await fetch(url);
-    if (!response.ok) throw new Error('HTTP ' + response.status);
-    const content = await response.text();
-    const el = document.getElementById(elementId);
-    if (el) el.innerHTML = content;
-
-    if (elementId === 'navbar-placeholder') {
-      highlightActiveLink();
-      setupMobileMenu();
-    }
-  } catch (e) {
-    console.error('Error loading component:', filePath, e);
-    const el = document.getElementById(elementId);
-    if (el) {
-      el.innerHTML = '<!-- Component failed to load: ' + filePath + ' -->';
-    }
-  }
-}
-
-function highlightActiveLink() {
+function highlightActiveNav() {
   const path = window.location.pathname;
-  const page = path.split('/').pop() || 'index.html';
-  const links = document.querySelectorAll('.nav-link');
-
-  links.forEach((link) => {
-    if (link.getAttribute('href') === page) {
-      link.classList.add('text-primary', 'border-primary');
-      link.classList.remove('text-secondary');
-      if (!link.closest('#mobile-menu'))
-        link.classList.add('border-b-2', 'pb-1');
-      else link.classList.add('border-l-2');
+  document.querySelectorAll('.nav-link').forEach(link => {
+    const href = link.getAttribute('href');
+    if (!href) return;
+    const linkPath = '/' + href;
+    if (path === linkPath || path.endsWith('/' + href)) {
+      link.classList.add('text-accent-ink');
+      link.classList.remove('text-accent-ink/70');
     }
   });
 }
 
-function setupMobileMenu() {
-  const btn = document.getElementById('mobile-menu-toggle');
+function setupMobileToggle() {
+  const toggle = document.getElementById('nav-toggle');
   const menu = document.getElementById('mobile-menu');
-  const icon = document.getElementById('mobile-menu-icon');
-  if (btn && menu) {
-    btn.onclick = () => {
-      const isHidden = menu.classList.toggle('hidden');
-      if (icon) icon.textContent = isHidden ? 'menu' : 'close';
-    };
+  if (toggle && menu) {
+    toggle.addEventListener('click', () => {
+      menu.classList.toggle('hidden');
+    });
   }
 }
 
-document.addEventListener('DOMContentLoaded', () => {
-  loadComponent('navbar-placeholder', 'components/navbar.html');
-  loadComponent('footer-placeholder', 'components/footer.html');
+async function loadComponent(id, url) {
+  const el = document.getElementById(id);
+  if (!el) return;
+  try {
+    const resp = await fetch(url);
+    if (!resp.ok) throw new Error('fetch failed');
+    el.innerHTML = await resp.text();
+  } catch {
+    el.innerHTML = '';
+  }
+}
+
+document.addEventListener('DOMContentLoaded', async () => {
+  await loadComponent('navbar-placeholder', 'components/navbar.html');
+  await loadComponent('footer-placeholder', 'components/footer.html');
+  highlightActiveNav();
+  setupMobileToggle();
 });
