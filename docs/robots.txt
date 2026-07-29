@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://abenezer46.github.io/ekwebsite/sitemap.xml
